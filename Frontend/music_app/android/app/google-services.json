@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "861530547500",
+    "firebase_url": "https://hackharvard2022-4724b-default-rtdb.firebaseio.com",
+    "project_id": "hackharvard2022-4724b",
+    "storage_bucket": "hackharvard2022-4724b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861530547500:android:6db897c431b463c1f33889",
+        "android_client_info": {
+          "package_name": "com.example.music_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861530547500-cgehpvbrlveo4eg0s9qlgq2f4rui0uh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfD72FaPNr5UO2PD3gXGIZ_teS8BbBCbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861530547500-cgehpvbrlveo4eg0s9qlgq2f4rui0uh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
