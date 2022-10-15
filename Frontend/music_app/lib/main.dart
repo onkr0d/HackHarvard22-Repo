@@ -74,11 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
       theme: ThemeData(
         brightness: Brightness.light,
-        /* light theme settings */
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        /* dark theme settings */
       ),
       themeMode: ThemeMode.dark,
     );

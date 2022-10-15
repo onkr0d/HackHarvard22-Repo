@@ -1,22 +1,21 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-class SongPage extends StatefulWidget {
-  final List<String> songNames;
-  final List<Image> songImages;
-  final List<int> songLengths;
+class SongItem extends StatefulWidget {
+  final String songName;
+  final Image songImage;
+  final String songAuthor;
 
-  const SongPage(
+  const SongItem(
       {super.key,
-      required this.songNames,
-      required this.songImages,
-      required this.songLengths});
+      required this.songName,
+      required this.songImage,
+      required this.songAuthor});
 
   @override
-  State<SongPage> createState() => _SongPageState();
+  State<SongItem> createState() => _SongItemState();
 }
 
-class _SongPageState extends State<SongPage> {
+class _SongItemState extends State<SongItem> {
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -27,15 +26,15 @@ class _SongPageState extends State<SongPage> {
         2: FixedColumnWidth(64),
       },
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      children: const <TableRow>[
+      children: <TableRow>[
         TableRow(
           children: <Widget>[
-            Text('song image'),
+            widget.songImage,
             TableCell(
               verticalAlignment: TableCellVerticalAlignment.top,
-              child: Text('song name'),
+              child: Text(widget.songName),
             ),
-            Text('runtime'),
+            Text(widget.songAuthor),
           ],
         ),
       ],
