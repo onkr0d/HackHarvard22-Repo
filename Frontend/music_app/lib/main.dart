@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Kandersteg, Switzerland',
+                  'Kandersteg, dwsfwfsß',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
