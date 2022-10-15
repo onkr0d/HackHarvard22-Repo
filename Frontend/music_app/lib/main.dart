@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
-import 'package:music_app/carousel_with_title.dart';
+import 'package:music_app/components/carousel_with_title.dart';
+import 'package:music_app/components/greeting.dart';
+import 'package:music_app/pages/camera_page.dart';
+import 'package:camera/camera.dart';
+import 'package:music_app/pages/song_page.dart';
 
-void main() {
-  runApp(const MyApp());
+late List<CameraDescription> _cameras;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  _cameras = await availableCameras();
+  runApp(const MusicApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MusicApp extends StatelessWidget {
+  const MusicApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -39,12 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   final List<String> imageList = [
-    "https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/19/10/55/christmas-market-4705877_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/22/04/18/x-mas-4711785__340.jpg",
-    "https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg"
+    "https://picsum.photos/960/721",
+    "https://picsum.photos/960/722",
+    "https://picsum.photos/960/723",
+    "https://picsum.photos/960/724",
+    "https://picsum.photos/960/725",
+    "https://picsum.photos/960/726"
   ];
 
   void _incrementCounter() {
@@ -55,43 +62,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+          ),
+          body: const SongPage()
+          // Our body will have to switch between Camera and Song pages.
+          // CameraPage(
+          //   cameraDescription: _cameras.isEmpty ? null : _cameras.first,
+          ),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        /* light theme settings */
       ),
-      body: CarouselWithTitle(
-        title: "Carousel with title",
-        items: imageList,
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        /* dark theme settings */
       ),
-
-      // Center(
-      //   child: Column(
-      //     // Column is also a layout widget. It takes a list of children and
-      //     // arranges them vertically. By default, it sizes itself to fit its
-      //     // children horizontally, and tries to be as tall as its parent.
-      //
-      //     // Column has various properties to control how it sizes itself and
-      //     // how it positions its children. Here we use mainAxisAlignment to
-      //     // center the children vertically; the main axis here is the vertical
-      //     // axis because Columns are vertical (the cross axis would be
-      //     // horizontal).
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: <Widget>[
-      //       const Text(
-      //         'You have pushed the button this many times:',
-      //       ),
-      //       Text(
-      //         '$_counter',
-      //         style: Theme.of(context).textTheme.headline4,
-      //       ),
-      //     ],
-      //   ),
-      // ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      themeMode: ThemeMode.dark,
     );
   }
 }

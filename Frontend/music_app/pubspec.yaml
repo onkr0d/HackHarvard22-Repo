@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   getwidget: ^2.0.4
+  camera: ^0.10.0+3
 
 
   # The following adds the Cupertino Icons font to your application.
