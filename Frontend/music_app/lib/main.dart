@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:music_app/components/carousel_with_title.dart';
-import 'package:music_app/components/greeting.dart';
-import 'package:music_app/pages/camera_page.dart';
 import 'package:camera/camera.dart';
-import 'package:music_app/pages/song_page.dart';
+import 'package:flutter/material.dart';
+import 'package:music_app/pages/camera_page.dart';
 
 late List<CameraDescription> _cameras;
 
