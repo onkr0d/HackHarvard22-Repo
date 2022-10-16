@@ -3,8 +3,13 @@ from flask import Flask, request
 import os
 from spotifyPlay import generateSongFromSearch, generateToken
 
+<<<<<<< HEAD
 import matplotlib.pyplot as plt 
 from fer import FER
+=======
+basedir = os.path.abspath(os.path.dirname(__file__))
+savesPath = os.path.join(basedir, 'tempSaveFolder')
+>>>>>>> 21c7b18c5d8e883d153b03fb27ef51ce42b3727d
 
 app = Flask(__name__)
 
@@ -50,9 +55,13 @@ def receive_image():
     print("received image")
     print(request.files)
 
+    file = request.files['image']
+
+    file.save(os.path.join(savesPath, file.filename))
+
     # Save the image to the filesystem
     image = request.files['image']
-    image.save(os.path.join('images', image.filename))
+    image.save(os.path.join(savesPath, image.filename))
     return "received image"
 
 def model():
