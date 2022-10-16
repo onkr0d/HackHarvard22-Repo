@@ -2,6 +2,7 @@ import base64
 import random
 import requests
 
+
 def generateToken():
     # Step 1 - Authorization 
     url = "https://accounts.spotify.com/api/token"
@@ -24,7 +25,10 @@ def generateToken():
 
     token = r.json()['access_token']
 
+    print("Token generated!")
+
     return token
+
 
 def generateSongFromSearch(query, token):
     # Step 2 - Use Access Token to query Spotify API and return a playlist ID
@@ -49,7 +53,11 @@ def generateSongFromSearch(query, token):
         "Authorization": "Bearer " + token
     }
 
-    res = requests.get(url=playlistUrl, headers=headers)
+    try:
+        res = requests.get(url=playlistUrl, headers=headers)
+    except:
+        print("Error: ", res.json())
+        return None
 
     artist = res.json()['items'][rand_song]['track']['album']['artists'][0]['name']
     title = res.json()['items'][rand_song]['track']['name']
@@ -73,5 +81,3 @@ def generateSongFromSearch(query, token):
     # print('\n')
 
     # print(json.dumps(res.json(), indent=2))
-
-
