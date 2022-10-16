@@ -57,12 +57,20 @@ def generateSongFromSearch(query):
     song_url = res.json()['items'][rand_song]['track']['external_urls']['spotify']
     duration = (res.json()['items'][rand_song]['track']['duration_ms'])
 
-    print(title)
-    print(artist)
-    print(image)
-    print(duration)
-    print(song_url)
-    print('\n')
+    return {
+        'artist': artist,
+        'title': title,
+        'cover': image,
+        'song_url': song_url,
+        'duration': duration
+    }
+    
+    # print(title)
+    # print(artist)
+    # print(image)
+    # print(duration)
+    # print(song_url)
+    # print('\n')
     
     # print(json.dumps(res.json(), indent=2))
 
