@@ -2,6 +2,9 @@ from flask import Flask, request
 import os
 from spotifyPlay import generateSongFromSearch, generateToken
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+savesPath = os.path.join(basedir, 'tempSaveFolder')
+
 app = Flask(__name__)
 
 token = None
@@ -46,9 +49,13 @@ def receive_image():
     print("received image")
     print(request.files)
 
+    file = request.files['image']
+
+    file.save(os.path.join(savesPath, file.filename))
+
     # Save the image to the filesystem
     image = request.files['image']
-    image.save(os.path.join('images', image.filename))
+    image.save(os.path.join(savesPath, image.filename))
     return "received image"
 
 
