@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/network/network_misc.dart';
 
 class CameraPage extends StatefulWidget {
   // This has to be nullable because iOS simulators suck and don't have a camera
@@ -77,11 +78,12 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   }
 
   void previewPhoto(xFile) {
+    var file = File(xFile.path);
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Scaffold(
-              body: Image.file(File(xFile.path)),
+              body: Image.file(file),
             )));
-
+    NetworkMisc.sendImage(file);
     goBack();
   }
 

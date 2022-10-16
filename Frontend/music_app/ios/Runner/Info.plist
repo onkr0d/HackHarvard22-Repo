@@ -49,6 +49,11 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>To detect emotional state please grant access</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
