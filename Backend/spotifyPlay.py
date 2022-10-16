@@ -1,8 +1,8 @@
-import requests
 import base64
-import json
-import math
 import random
+
+import requests
+
 
 def generateSongFromSearch(query):
     # Step 1 - Authorization 
@@ -19,7 +19,6 @@ def generateSongFromSearch(query):
     base64Bytes = base64.b64encode(messageBytes)
     base64Message = base64Bytes.decode('ascii')
 
-
     headers['Authorization'] = f"Basic {base64Message}"
     data['grant_type'] = "client_credentials"
 
@@ -30,7 +29,7 @@ def generateSongFromSearch(query):
     # Step 2 - Use Access Token to query Spotify API and return a playlist ID
 
     random.seed()
-    rand_song = random.randint(0,5) # randomize query 
+    rand_song = random.randint(0, 5)  # randomize query
 
     q = query
     searchUrl = f"https://api.spotify.com/v1/search?q={q}&type=playlist&market=US&limit=1&offset={rand_song}"
@@ -40,7 +39,7 @@ def generateSongFromSearch(query):
 
     res = requests.get(url=searchUrl, headers=headers)
 
-    playlistId = res.json()['playlists']['items'][0]['id'] 
+    playlistId = res.json()['playlists']['items'][0]['id']
 
     # Step 3 - Use Token and playlist ID to return track information
 
@@ -64,15 +63,12 @@ def generateSongFromSearch(query):
         'song_url': song_url,
         'duration': duration
     }
-    
+
     # print(title)
     # print(artist)
     # print(image)
     # print(duration)
     # print(song_url)
     # print('\n')
-    
+
     # print(json.dumps(res.json(), indent=2))
-
-
-
