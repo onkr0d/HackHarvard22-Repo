@@ -31,10 +31,13 @@ Some days might feel like nothing but good vibes, while others might feel a bit 
 
 Rishi Parpyani
 > _Information Systems Graduate Student at Northeastern University_
+
 Ivan Khramtchenko
 > _Computer Science major at Boston University_
+
 Jason Li
 > _Computer Engineering major at Boston University_
+
 Andrew Sasamori
 > _Computer Engineering major at Boston University_
 
