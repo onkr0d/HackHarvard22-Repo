@@ -1,5 +1,6 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CameraPage extends StatefulWidget {
@@ -58,13 +59,37 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
             semanticsLabel: 'Circular progress indicator',
           )
         : CameraPreview(_controller!);
-    return Align(
-        alignment: Alignment.center,
-        child:
-            // Column(
-            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly, children:
-            toReturn
-        // ),
-        );
+
+
+
+    return Scaffold(
+      body: toReturn,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          var photo = await _controller?.takePicture();
+          print('photo taken!');
+
+          previewPhoto(photo);
+        },
+        child: const Icon(Icons.camera),
+      ),
+    );
+  }
+
+  void previewPhoto(xFile) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Scaffold(
+              body: Image.file(File(xFile.path)),
+            )));
+
+    goBack();
+  }
+
+  // this is dummy code :)
+  // will change after implement frontend-backend connection
+  void goBack() async {
+    // await for 5 seconds
+    await Future.delayed(const Duration(seconds: 3), () {});
+    Navigator.of(context).pop();
   }
 }
