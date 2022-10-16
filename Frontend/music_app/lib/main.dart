@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
           appBar: AppBar(
             title: Text(widget.title),
           ),
-          body: const SongPage()
+          // body: const SongPage()
           // Our body will have to switch between Camera and Song pages.
           // CameraPage(
           //   cameraDescription: _cameras.isEmpty ? null : _cameras.first,
