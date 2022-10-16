@@ -56,7 +56,7 @@ def receive_image():
     return "received image"
 
 def model():
-    image = request.files
+    image = request.files['image']
     test_image_one = plt.imread(image)
     emo_detector = FER(mtcnn=True)
 # Capture all the emotions on the image
