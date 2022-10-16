@@ -12,7 +12,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # In[30]:
 
 
-test_image_one = plt.imread(r"C:\Users\rishi\Downloads\Photo_on_10-15-22_at_4.07_PM.jpg")
+test_image_one = plt.imread(r"/Users/jason/Downloads/test.jpg")
 emo_detector = FER(mtcnn=True)
 # Capture all the emotions on the image
 captured_emotions = emo_detector.detect_emotions(test_image_one)
@@ -24,6 +24,16 @@ plt.imshow(test_image_one)
 dominant_emotion, emotion_score = emo_detector.top_emotion(test_image_one)
 print(dominant_emotion, emotion_score)
 print(dominant_emotion)
+
+convert = { 
+    'angry': '37i9dQZF1DWWJOmJ7nRx0C', 
+    'disgust': '37i9dQZF1DWY1j3jZdCWOQ', 
+    'fear': '37i9dQZF1DWWY64wDtewQt',
+    'happy': '37i9dQZF1DWSThc8QnzIme', 
+    'neutral': '37i9dQZF1DWZqd5JICZI0u', 
+    'sad': '37i9dQZF1DWSqBruwoIXkA', 
+    'surprise': '37i9dQZF1DXcb6CQIjdqKy'
+    }
 
 
 # In[55]:
@@ -39,9 +49,9 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate("C:/Users/rishi/OneDrive/Desktop/EmotionRecognition/hackharvard2022-4724b-firebase-adminsdk-vhlj6-7ea3366982.json")
+cred = credentials.Certificate("/Users/jason/Documents/Projects/HackHarvard22-Repo/hackharvard2022-4724b-firebase-adminsdk-vhlj6-7ea3366982.json")
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://hackharvard2022-4724b-default-rtdb.firebaseio.com/'
+    'databaseURL': 'z'
 })
 ref = db.reference('/')
 
@@ -57,7 +67,7 @@ print(ref.get())
 
 users_ref = ref.child('users')
 users_ref.set({
-    'mood':dominant_emotion
+    'playlistId':convert.dominant_emotion
     }
 )
 
