@@ -1,5 +1,4 @@
 from flask import Flask, request
-from flask import Flask, request, Response, jsonify, send_from_directory, abort
 import os
 from fer import FER
 import matplotlib.pyplot as plt
