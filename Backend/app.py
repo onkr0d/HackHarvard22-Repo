@@ -1,37 +1,18 @@
-from gettext import install
-from flask import Flask, request
 import os
+
+import matplotlib.pyplot as plt
+# from fer import FER
+from flask import Flask, request
+
+from moods import getCity
 from spotifyPlay import generateSongFromSearch, generateToken
 
-<<<<<<< HEAD
-import matplotlib.pyplot as plt 
-from fer import FER
-=======
 basedir = os.path.abspath(os.path.dirname(__file__))
 savesPath = os.path.join(basedir, 'tempSaveFolder')
->>>>>>> 21c7b18c5d8e883d153b03fb27ef51ce42b3727d
 
 app = Flask(__name__)
 
 token = None
-
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-
-@app.route('/whatever', methods=['GET'])
-def do_whatever():
-    print('I am doing whatever!')
-    return "okay!"
-
-
-@app.route('/analyzeEmotion', methods=['POST'])
-def analyze_emotion():
-    image = request.files
-
-    return "received image"
 
 
 @app.route('/searchbymood', methods=['POST'])
@@ -40,14 +21,20 @@ def search_for_songs_based_on_mood():
     if token is None:
         token = generateToken()
 
-    generated_songs = generateSongFromSearch(request.get_json()['mood'], token)
+    mood = request.args.get('mood')
+    generated_songs = generateSongFromSearch(mood, token)
     # There was an error, token probably expired.
     if generated_songs is None:
         # Let's refresh the token and try again.
         token = generateToken()
-        generated_songs = generateSongFromSearch(request.get_json()['mood'], token)
+        generated_songs = generateSongFromSearch(mood, token)
 
     return generated_songs
+
+
+@app.route('/findcity', methods=['POST'])
+def find_city():
+    return getCity()
 
 
 @app.route('/image', methods=['POST'])
@@ -64,17 +51,19 @@ def receive_image():
     image.save(os.path.join(savesPath, image.filename))
     return "received image"
 
+
+@app.route('/analyzeEmotions', methods=['POST'])
 def model():
     image = request.files['image']
     test_image_one = plt.imread(image)
     emo_detector = FER(mtcnn=True)
-# Capture all the emotions on the image
+    # Capture all the emotions on the image
     captured_emotions = emo_detector.detect_emotions(test_image_one)
-# Print all captured emotions with the image
+    # Print all captured emotions with the image
     print(captured_emotions)
     plt.imshow(test_image_one)
 
-# Use the top Emotion() function to call for the dominant emotion in the image
+    # Use the top Emotion() function to call for the dominant emotion in the image
     dominant_emotion, emotion_score = emo_detector.top_emotion(test_image_one)
     print(dominant_emotion, emotion_score)
     print(dominant_emotion)

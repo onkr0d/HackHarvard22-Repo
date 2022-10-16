@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/network/network_misc.dart';
+import 'package:music_app/pages/loading_screen.dart';
+import 'package:music_app/pages/song_page.dart';
 
 class CameraPage extends StatefulWidget {
   // This has to be nullable because iOS simulators suck and don't have a camera
@@ -17,6 +19,7 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   late CameraController? _controller = null;
   late AnimationController animationController;
+  bool pressed = false;
 
   @override
   void initState() {
@@ -61,37 +64,35 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
           )
         : CameraPreview(_controller!);
 
-
-
     return Scaffold(
       body: toReturn,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
+          if (pressed) {
+            return;
+          }
+          pressed = true;
           var photo = await _controller?.takePicture();
-          print('photo taken!');
+          var emotion = await NetworkMisc.sendImage(photo);
+          print('emotion: $emotion');
 
-          previewPhoto(photo);
+          goNext(photo, emotion);
         },
         child: const Icon(Icons.camera),
       ),
     );
   }
 
-  void previewPhoto(xFile) {
-    var file = File(xFile.path);
+  void goNext(xfile, emotion) {
+    var file = File(xfile.path);
+
+    NetworkMisc.sendImage(file);
+    pressed = false;
+
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Scaffold(
-              body: Image.file(file),
-            )));
-    NetworkMisc.sendImage(file);
-    goBack();
-  }
-
-  // this is dummy code :)
-  // will change after implement frontend-backend connection
-  void goBack() async {
-    // await for 5 seconds
-    await Future.delayed(const Duration(seconds: 3), () {});
-    Navigator.of(context).pop();
+                body: SongPage(
+              emotion: emotion,
+            ))));
   }
 }

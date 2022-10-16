@@ -34,7 +34,7 @@ def generateSongFromSearch(query, token):
     # Step 2 - Use Access Token to query Spotify API and return a playlist ID
 
     random.seed()
-    rand_song = random.randint(0, 5)  # randomize query
+    rand_song = random.randint(0, 8 )  # randomize query
 
     q = query
     searchUrl = f"https://api.spotify.com/v1/search?q={q}&type=playlist&market=US&limit=1&offset={rand_song}"

@@ -1,29 +1,30 @@
-import geocoder
 import time
+
+import geocoder
 import pyowm
-import datetime
-import moods
 
 # Key for weather API
 api_key = '7eb17edd975c877bb6b1c92e555b182c'
 owm = pyowm.OWM(api_key).weather_manager()
 
-#return city of where you are located
-def getCity(): 
+
+# return city of where you are located
+def getCity():
     g = geocoder.ip('me')
     return g.city
+
 
 # return the time of the day
 def getTime():
     t = time.localtime()
     current_time = int(time.strftime("%H", t))
-    if(current_time >= 7 and current_time < 11):
+    if (current_time >= 7 and current_time < 11):
         return 'morning'
-    if(current_time >= 11 and current_time < 15):
+    if (current_time >= 11 and current_time < 15):
         return 'afternoon'
-    if(current_time >= 15 and current_time < 18):
+    if (current_time >= 15 and current_time < 18):
         return 'commute'
-    if((current_time >= 18 and current_time <= 23) or (current_time >= 0 and current_time < 7)):
+    if ((current_time >= 18 and current_time <= 23) or (current_time >= 0 and current_time < 7)):
         return 'night'
 
 
@@ -31,7 +32,7 @@ def getTime():
 def getCurrentWeather():
     type_of_weather = "sunny"
     weather_api = owm.weather_at_place()  # give where you need to see the weather
-    weather_data = weather_api.weather          # get out data in the mentioned location
+    weather_data = weather_api.weather  # get out data in the mentioned location
     if "rain" in weather_data:
         type_of_weather = "rain"
     elif "snow" in weather_data:
