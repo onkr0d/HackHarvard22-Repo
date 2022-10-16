@@ -1,10 +1,8 @@
 import base64
 import random
-
 import requests
 
-
-def generateSongFromSearch(query):
+def generateToken():
     # Step 1 - Authorization 
     url = "https://accounts.spotify.com/api/token"
     headers = {}
@@ -26,6 +24,9 @@ def generateSongFromSearch(query):
 
     token = r.json()['access_token']
 
+    return token
+
+def generateSongFromSearch(query, token):
     # Step 2 - Use Access Token to query Spotify API and return a playlist ID
 
     random.seed()
@@ -72,3 +73,5 @@ def generateSongFromSearch(query):
     # print('\n')
 
     # print(json.dumps(res.json(), indent=2))
+
+
