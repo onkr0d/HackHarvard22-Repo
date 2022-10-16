@@ -53,4 +53,4 @@ Andrew Sasamori
 
 ---
 
-![Alt]B91C41E4-F300-4237-B672-BEF0800DA58C_1_105_c.jpeg
+![Screenshot](B91C41E4-F300-4237-B672-BEF0800DA58C_1_105_c.jpeg)
