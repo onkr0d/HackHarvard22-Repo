@@ -1,5 +1,5 @@
 # 🛠 Hack Harvard 2022 Ctrl Alt Create 🛠
-![Screenshot](Untitled drawing.png)
+![Screenshot](BayMax.png)
 # 🎵 Dynamic Playlist Curation 🎵
 
 <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" /> <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" /> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" />
