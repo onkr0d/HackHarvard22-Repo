@@ -18,7 +18,7 @@ def do_whatever():
     return "okay!"
 
 
-@app.route('analyzeEmotion', methods=['POST'])
+@app.route('/analyzeEmotion', methods=['POST'])
 def analyze_emotion():
     image = request.files
 
