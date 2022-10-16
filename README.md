@@ -25,6 +25,6 @@ Rishi
 Andrew
 
 
-## 🚀 Usage
+### 🚀 Usage
 
-* Made specifically for Spotify *
+* Made specifically for Spotify 
