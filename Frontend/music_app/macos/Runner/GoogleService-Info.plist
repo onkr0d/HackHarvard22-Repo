@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>861530547500-jjlok8h8se90ojpt1oaj543peheq9up9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.861530547500-jjlok8h8se90ojpt1oaj543peheq9up9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB7LWqtBsEYJXhknnKznvr0O9i6b6H-ltk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>861530547500</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.musicApp</string>
+	<key>PROJECT_ID</key>
+	<string>hackharvard2022-4724b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hackharvard2022-4724b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:861530547500:ios:afc4c20bb3b2b1d6f33889</string>
+	<key>DATABASE_URL</key>
+	<string>https://hackharvard2022-4724b-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
