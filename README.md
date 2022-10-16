@@ -1,10 +1,9 @@
 # 🎵 Dynamic Listening Enhancing Experience
 
-(https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white)
-
 ## 🌟 Highlights
 
 - Mobile Application
+- Playlist assorted based on various metrics
 - Flutter as Frontend, Flutter and Python as Backend
 - Machine Learning model for emotional analysis
 
