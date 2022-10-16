@@ -27,7 +27,7 @@ Some days might feel like nothing but good vibes, while others might feel a bit 
 ---
 
 
-### ✍️ Authors
+### ✍️ Hackers
 
 Rishi Parpyani
 > _Information Systems Graduate Student at Northeastern University_
@@ -48,7 +48,7 @@ Andrew Sasamori
 ### 🚀 Usage
 
 * Made specifically for Spotify
-> _Does not work with Apple Music_
+> *Does not work with Apple Music*
 
 
 ---
