@@ -16,10 +16,12 @@ Some days feel like nothing but good vibes, while some make you feel like you're
 
 ### ✍️ Authors
 
-Mention who you are and link to your GitHub or organization's website.
 Ivan
+
 Jason
+
 Rishi
+
 Andrew
 
 
