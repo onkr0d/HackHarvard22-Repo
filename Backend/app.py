@@ -18,6 +18,13 @@ def do_whatever():
     return "okay!"
 
 
+@app.route('analyzeEmotion', methods=['POST'])
+def analyze_emotion():
+    image = request.files
+
+    return "received image"
+
+
 @app.route('/searchbymood', methods=['POST'])
 def search_for_songs_based_on_mood():
     global token
