@@ -12,7 +12,7 @@
 
 ## ℹ️ Overview
 
-Some days feel like nothing but good vibes, while some make you feel like . But throught it all, music has been by your side to give you an encompassing experience. The Dynamic Playlist Curation app allows you to snap a quick pic of yourself, analyzes your current mood, and incorporates other metrics to determine the best songs that are fit just for you! It's a great way to discover songs that sounds just right at the right time. We hope you'll enjoy the 10-song playlist that we've created especially for you!
+Some days might feel like nothing but good vibes, while others might feel a bit slow. Throught it all, music has been by your side to give you an encompassing experience. Using the Dynamic Playlist Curation (DPC) app, all you have to do is snap a quick pic of yourself, and DPC will take care of the rest! The app analyzes your current mood, and incorporates other metrics like the current weather and time of day to determine the best songs for your current mood. It's a great way to discover songs that sound just right at the right time. We hope you'll enjoy the 10-song playlist that we've created especially for you!
 
 
 ### ✍️ Authors
