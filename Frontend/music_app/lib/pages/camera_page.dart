@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class CameraPage extends StatefulWidget {
   // This has to be nullable because iOS simulators suck and don't have a camera
-  final CameraDescription? cameraDescription;
+  final List<CameraDescription>? cameraDescription;
 
   const CameraPage({super.key, required this.cameraDescription});
 
@@ -18,10 +18,26 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    if (widget.cameraDescription != null) {
-      _controller =
-          CameraController(widget.cameraDescription!, ResolutionPreset.max);
-    }
+    // yeah this is hardcoded. shut up.
+    _controller = CameraController(
+        widget.cameraDescription!.elementAt(1), ResolutionPreset.max);
+    _controller?.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    }).catchError((Object e) {
+      if (e is CameraException) {
+        switch (e.code) {
+          case 'CameraAccessDenied':
+            print('User denied camera access.');
+            break;
+          default:
+            print('Handle other errors.');
+            break;
+        }
+      }
+    });
 
     animationController = AnimationController(
       vsync: this,
@@ -36,19 +52,19 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> toReturn = _controller == null
-        ? <Widget>[
-            CircularProgressIndicator(
-              value: animationController.value,
-              semanticsLabel: 'Circular progress indicator',
-            ),
-            const Text('Camera loading')
-          ]
-        : <Widget>[CameraPreview(_controller!)];
+    Widget toReturn = _controller == null
+        ? CircularProgressIndicator(
+            value: animationController.value,
+            semanticsLabel: 'Circular progress indicator',
+          )
+        : CameraPreview(_controller!);
     return Align(
-      alignment: Alignment.center,
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: toReturn),
-    );
+        alignment: Alignment.center,
+        child:
+            // Column(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly, children:
+            toReturn
+        // ),
+        );
   }
 }
