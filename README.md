@@ -49,9 +49,17 @@ Andrew Sasamori
 ### 🚀 Usage
 
 * Made specifically for Spotify
+
 <img src="https://img.shields.io/badge/Spotify-1ED760?&style=for-the-badge&logo=spotify&logoColor=white" />
 
 
 ---
 
+![WhatsApp Image 2022-10-17 at 1 55 54 PM](https://user-images.githubusercontent.com/98354316/199498647-37beead7-4a08-4024-a880-8f0c810f83dc.jpeg)
+
+![1666146298472](https://user-images.githubusercontent.com/98354316/199498694-0e51c76e-8e05-40ae-b1d5-0177e00f9e99.jpg)
+
 ![Screenshot](B91C41E4-F300-4237-B672-BEF0800DA58C_1_105_c.jpeg)
+
+
+
